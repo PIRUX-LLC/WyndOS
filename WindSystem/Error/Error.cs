@@ -63,6 +63,13 @@ namespace WindOS.WindSystem.Error
                 WriteToLog.writeToLog("Could not change directory at " + DateTime.Now.ToString());
                 Console.ForegroundColor = OSRegistry.userForegroundColor;
             }
+            else if (errorString == "FileSystem:nofile")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("[!] File System Error: File does not exist [!]");
+                WriteToLog.writeToLog("Could not read file at " + DateTime.Now.ToString());
+                Console.ForegroundColor = OSRegistry.userForegroundColor;
+            }
         }
     }
 }

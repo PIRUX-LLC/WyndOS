@@ -3,6 +3,8 @@ using System;
 using System.IO;
 using WindOS.WindSystem.SettingsUI;
 using WindOS.WindSystem.Utilities;
+using WindOS.WindSystem.Utilities.Fun;
+using WindOS.WindSystem.Utilities.Script;
 using Sys = Cosmos.System;
 
 namespace WindOS.WindSystem.OS
@@ -114,16 +116,18 @@ namespace WindOS.WindSystem.OS
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.Write("\n|\n");
                         Console.ForegroundColor = ConsoleColor.White;
+                        
 
 
                         //|>dir
                         //|
                     }
+                    Console.WriteLine();
                 }
             } catch(Exception ex)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("[!] File System Error: Could not delete file [!]");
+                Console.WriteLine("[!] File System Error: Could not list files [!]");
                 WriteToLog.writeToLog("Issue listing directories at " + DateTime.Now.ToString());
                 Console.ForegroundColor = OSRegistry.userForegroundColor;
             }
@@ -226,8 +230,29 @@ namespace WindOS.WindSystem.OS
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(Resources.ASCIIArt.wyndOSIcon);
-            Console.Write("Wynd OS Version " + OSRegistry.versionString + " (c) 2022 Wynd OS Team");
+            Console.Write("Wynd OS Version " + OSRegistry.versionString + " (c) 2022 Wynd OS Team\n");
             Console.ForegroundColor = OSRegistry.userForegroundColor;
+        }
+
+        public static void easterEgg()
+        {
+            Song.RunSong();
+        }
+
+        public static void home()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(WindSystem.Resources.ASCIIArt.wyndOSIcon);
+            Console.WriteLine("Welecome!");
+            Console.WriteLine();
+
+            Console.ForegroundColor = OSRegistry.userForegroundColor;
+        }
+
+        public static void wyndCompile(string args)
+        {
+            WyndScript.WyndCompile(args);
         }
     }
 }

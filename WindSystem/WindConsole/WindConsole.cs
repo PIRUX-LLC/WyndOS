@@ -113,6 +113,30 @@ namespace WindOS.WindSystem.WindConsole
             else if (input.StartsWith("echo"))
             {
                 string StringToEcho = input.Replace("echo", "").Trim();
+                Commands.echo(StringToEcho);
+            }
+            else if (input == "about")
+            {
+                Commands.about();
+            }
+            else if (input == "eggy")
+            {
+                Commands.easterEgg();
+            }
+            else if(input == "home")
+            {
+                Commands.home();
+            }
+            else if (input.StartsWith("run"))
+            {
+                string PathToFile = input.Replace("run", "").Trim();
+                //Console.WriteLine(PathToFile);
+                Commands.wyndCompile(PathToFile);
+               
+            }
+            else if(input == "")
+            {
+                //Ignore
             }
             else
             {

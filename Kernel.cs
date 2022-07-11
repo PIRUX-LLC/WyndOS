@@ -11,12 +11,14 @@ using WindOS.WindSystem.Boot;
 using System.IO;
 using System.Threading;
 using WindOS.WindSystem.Resources;
+using Cosmos.System.Graphics;
 
 namespace WindOS
 {
     public class Kernel : Sys.Kernel
     {
         public CosmosVFS fs;
+        public static VGAScreen VScreen = new VGAScreen();
 
         protected override void BeforeRun()
         {
